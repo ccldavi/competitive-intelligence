@@ -1,16 +1,32 @@
-# competitive-intelligence
+# competitive-intelligence (Compete)
 
-A Kiro skill for compete positioning against non-AWS cloud providers, ISVs, and incumbent vendors — sourced **exclusively from Cloud Intelligence Highspot** (no public internet, no invented feature comparisons). Returns positioning, proof points, objection handlers, pricing combat analysis, architecture/benchmark guidance, honest competitor strengths, watch-outs, and a recommended compete motion (Displace / Coexist & Erode / Contain / Defend / Walk Away) per incumbent × contested workload.
+A Kiro skill for compete positioning against non-AWS cloud providers, ISVs, and incumbent vendors — sourced **exclusively from Cloud Intelligence Highspot** (the "CI Database"). No public internet. No invented feature comparisons. Returns positioning, proof points, objection handlers, pricing combat analysis, architecture/benchmark guidance, honest competitor strengths, watch-outs, and a recommended compete motion (Displace / Coexist & Erode / Contain / Defend / Walk Away).
 
 ## Pipeline position
 
+This skill is a **parallel branch off `account-analysis`** — not a step in the `solutions-search → bttroc` chain.
+
 ```
-account-analysis → solutions-search → competitive-intelligence → bttroc
+account-analysis  →  strategic initiative suggestion
+                      ├──→  compete  (parallel)
+                      └──→  bttroc
 ```
 
-Two modes:
-- **Standalone** — user supplies competitor + opportunity + contested workload.
-- **Chained** (default in the Phase 02 Strategy pipeline) — consumes the Other-Cloud/GenAI footprint and Top 5 Strategic Actions from `account-analysis`, plus the top-ranked reference per action from `solutions-search`. Produces one brief per incumbent × Strategic Action pair.
+## Inputs
+
+- **Customer name**
+- **Competitor name** — specific (e.g. "Azure OpenAI Service", not "public cloud")
+- **Strategic initiative suggestion** from `account-analysis` — used to identify the contested workload or action per incumbent
+
+It can also run standalone when the user supplies customer + competitor + contested workload directly, without invoking the upstream chain.
+
+## Data source
+
+Cloud Intelligence Highspot (battlecards, compete narratives, displacement playbooks, win/loss analysis, published benchmarks). Every claim is traceable to a CI Highspot artifact.
+
+## Output
+
+`Compete 分析结果` — one compete brief per incumbent × strategic action, with the recommended compete motion, positioning frame, proof points, objection handlers, pricing combat analysis, benchmark guidance, honest competitor strengths, watch-outs, and seller takeaways.
 
 ## Triggers
 
