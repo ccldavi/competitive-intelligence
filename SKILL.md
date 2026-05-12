@@ -39,7 +39,7 @@ The user names a competitor and a workload/scenario. No upstream skill is requir
 This is the **default mode when this skill is used in the opporunity qualification process**. The position in the chain is:
 
 ```
-account-analysis ──> solutions-search ──> competitive-intelligence ──> customer-conversation-builder
+account-analysis ──> solutions-search ──> competitive-intelligence ──> bttroc
 ```
 
 In Mode B, the skill consumes **two upstream outputs**:
@@ -62,9 +62,8 @@ Use this mode when the user asks for "the compete plan for [customer name]" or e
 
 **Mode B (chained):**
 
-1. **`account-analysis` output** — required, containing the Other-Cloud & GenAI Footprint table, the Top 5 Strategic Actions, customer industry/region, and buying behavior. If missing, stop and instruct the user to run `account-analysis` first.
-2. **`solutions-search` output** — required, containing the top-ranked reference and AWS capability per Strategic Action. If missing, stop and instruct the user to run `solutions-search` first.
-3. **Competitor scope** — optional; if the user names specific incumbents to focus on, use that; otherwise run the compete brief across every incumbent listed in the Other-Cloud & GenAI Footprint.
+1. **`account-analysis` output** — required, the Top 5 Strategic Actions, customer industry/region, and buying behavior.
+2. **Competitor scope** — optional; if the user names specific incumbents to focus on, use that; otherwise run the compete brief across every incumbent listed in the Other-Cloud & GenAI Footprint.
 
 ### Optional Input
 
@@ -467,7 +466,15 @@ If CI Highspot coverage is thin for any dimension, state it plainly:
 
 Do not paper over gaps with unreviewed content.
 
-Conclude with: "This compete position is ready to use. The next step in the Phase 02 Strategy pipeline is **`customer-conversation-builder`** — it consumes three upstream outputs together (`account-analysis`, `solutions-search`, and this `competitive-intelligence` output) and produces a single CXO-ready conversation that weaves the strategic recommendation, the reference solution, and the compete positioning into an executive narrative that breaks through the resistance of change. Once the customer commits to a next-meeting ask, run **`opportunity-identification`** to qualify the resulting opportunity with MEDDPICC."
+Conclude with: "This compete position is ready to use. The next step in the Phase 02 Strategy pipeline is **`bttroc`** — it consumes three upstream outputs together (`account-analysis`, `solutions-search`, and this `competitive-intelligence` output) and produces a single CXO-ready conversation that weaves the strategic recommendation, the reference solution, and the compete positioning into an executive narrative that breaks through the resistance of change. Once the customer commits to a next-meeting ask, run **`opportunity-progression`** to qualify the resulting opportunity with MEDDPICC."
+
+## Document Output
+
+Deliver the compete brief(s) **in the chat** by default — no file is saved unless the user explicitly asks. The output lives in the conversation context; `bttroc` reads it from context.
+
+**File save is opt-in only:** if the user asks to save, write one file per (customer × incumbent) pair as `CI_{Customer}_{Incumbent}_{Date}.md` (example: `CI_MinghuaHeavy_Azure_2026-05-01.md`).
+
+---
 
 ## Mandatory Quality Gate (RAG Search Validation)
 
