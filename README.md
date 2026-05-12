@@ -1,6 +1,16 @@
 # competitive-intelligence
 
-A Kiro skill for competitive intelligence and positioning recommendations against non-AWS cloud providers, ISVs, and incumbent vendors, grounded in content from Cloud Intelligence Highspot. Returns positioning, proof points, objection handlers, pricing combat analysis, benchmark guidance, and a recommended compete motion.
+A Kiro skill for compete positioning against non-AWS cloud providers, ISVs, and incumbent vendors — sourced **exclusively from Cloud Intelligence Highspot** (no public internet, no invented feature comparisons). Returns positioning, proof points, objection handlers, pricing combat analysis, architecture/benchmark guidance, honest competitor strengths, watch-outs, and a recommended compete motion (Displace / Coexist & Erode / Contain / Defend / Walk Away) per incumbent × contested workload.
+
+## Pipeline position
+
+```
+account-analysis → solutions-search → competitive-intelligence → bttroc
+```
+
+Two modes:
+- **Standalone** — user supplies competitor + opportunity + contested workload.
+- **Chained** (default in the Phase 02 Strategy pipeline) — consumes the Other-Cloud/GenAI footprint and Top 5 Strategic Actions from `account-analysis`, plus the top-ranked reference per action from `solutions-search`. Produces one brief per incumbent × Strategic Action pair.
 
 ## Triggers
 
